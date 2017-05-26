@@ -1,0 +1,18 @@
+sudo: false
+os: linux
+dist: trusty
+language: node_js
+node_js: '7'
+install:
+- npm install
+- npm install -g vsce
+- vsce package
+deploy:
+  provider: releases
+  api_key:
+    secure: SQZTQCNR37SYYfAL+x0Iv5iQgbGedSas5iMpDFntqwedwBGBRj9z1/HGKqHWDLI25QFesYAoyKWEZ4CY6Enn3FL529J1665TtMUYkQhTDjEchdpznRhnyMOeQtCp72wYhEA+O/bBLZkt840J6RKIqGP3Jg/ArPXRXr2UH9cYsW2I8VzkQEPcY9oyxr8fuyH8efabAoMvLMkSaAwpqKzN6HBacpWaXWoj1ttMxpkM98KM3RGeVi4/QmBzhbsZhsBMWawdtXsmfBNX7mfSYiJPimrtYo1DY61Qd5kwd+MFWeiGkY5e7ZZHHggkxspgIRxuNXqmtM7pLLebCQu3ekWUZhAxkDYY21ZhuRq0fds3Y7Pj8ngQSVpUao22jF7jXKgIsUGCHgWe7G3WLU+IBiE2EqA9aplZUwuMzWExz7q6zUundI2GKH/jv/Osbtzig/uoHDu6nK0qPDwIIWS5e5gFYXI2D46RWhJtILhp2DlFCmL/fkRF+Dr9pJ5IhJXUklvSyzQX5DwIhEjZ9DANTWj8Aug9FP4objaiiiHN7tVoWW88QF/eFZEaOkjcSkmT9lPhtDlWTxCxBAMOPOxm0QOcoM0TgrXwVI/1pnLLTG9CwFRKgIE7zJBijArWLp/Yl/MOobDRxY7WUrueD82SRVLmbG3tmozLRD06/vObbehIvus=
+  file: 'vscode-svgviewer-$TRAVIS_TAG.vsix'
+  skip_cleanup: true
+  on:
+    repo: harmishhk/vscode-svgviewer
+    tags: true
